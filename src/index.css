@@ -1,0 +1,145 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Plusfind Design System - UAE EV Theme */
+
+@layer base {
+  :root {
+    /* Base colors */
+    --background: 220 13% 9%;
+    --foreground: 220 9% 95%;
+
+    /* Card and surfaces */
+    --card: 220 13% 11%;
+    --card-foreground: 220 9% 95%;
+
+    /* Popover */
+    --popover: 220 13% 11%;
+    --popover-foreground: 220 9% 95%;
+
+    /* Primary - Electric Blue */
+    --primary: 199 89% 48%;
+    --primary-foreground: 220 13% 9%;
+
+    /* Secondary - Dark Blue */
+    --secondary: 220 13% 16%;
+    --secondary-foreground: 220 9% 95%;
+
+    /* Muted surfaces */
+    --muted: 220 13% 16%;
+    --muted-foreground: 220 9% 60%;
+
+    /* Accent - Electric Green */
+    --accent: 142 76% 36%;
+    --accent-foreground: 220 13% 9%;
+
+    /* Destructive - Warning Red */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 220 9% 95%;
+
+    /* Borders and inputs */
+    --border: 220 13% 20%;
+    --input: 220 13% 16%;
+    --ring: 199 89% 48%;
+
+    --radius: 0.75rem;
+
+    /* Custom EV Theme Colors */
+    --electric-blue: 199 89% 48%;
+    --electric-green: 142 76% 36%;
+    --charge-yellow: 48 96% 53%;
+    --battery-red: 0 84% 60%;
+    --uae-gold: 45 93% 47%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer components {
+  /* Glass morphism effects */
+  .glass {
+    @apply bg-white/10 backdrop-blur-md border border-white/20;
+  }
+  
+  .glass-dark {
+    @apply bg-black/20 backdrop-blur-md border border-white/10;
+  }
+
+  /* Gradient backgrounds */
+  .gradient-electric {
+    background: linear-gradient(135deg, hsl(var(--electric-blue)), hsl(var(--electric-green)));
+  }
+  
+  .gradient-uae {
+    background: linear-gradient(135deg, hsl(var(--electric-blue)), hsl(var(--uae-gold)));
+  }
+
+  /* Animation classes */
+  .animate-slide-up {
+    animation: slideUp 0.3s ease-out;
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-out;
+  }
+  
+  .animate-pulse-slow {
+    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+}
+
+@layer utilities {
+  /* Text gradients */
+  .text-gradient-electric {
+    @apply bg-gradient-to-r from-sky-400 to-emerald-400 bg-clip-text text-transparent;
+  }
+  
+  .text-gradient-uae {
+    @apply bg-gradient-to-r from-sky-400 to-yellow-400 bg-clip-text text-transparent;
+  }
+}
+
+/* Custom animations */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Mapbox override styles */
+.mapboxgl-popup {
+  @apply text-foreground;
+}
+
+.mapboxgl-popup-content {
+  @apply bg-card border border-border rounded-lg shadow-xl;
+}
+
+.mapboxgl-ctrl-group {
+  @apply glass-dark rounded-lg;
+}
